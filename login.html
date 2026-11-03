@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Sign in to Yousuf Adil - Project Management Workflows. Streamline your projects, achieve more.">
+    <title>Sign In | Yousuf Adil - PACE ALIGNED</title>
+    <link rel="icon" type="image/png" href="img/yousuf_adil_logo_perfect.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('yaca_theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    <style>
+        /* ============================================= */
+        /*  YOUSUF ADIL - LOGIN PAGE STYLES              */
+        /* ============================================= */
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green-dark: #153e1a;
+            --green-primary: #1b5e20;
+            --green-medium: #2e7d32;
+            --green-light: #4caf50;
+            --green-lighter: #5cba47;
+            --green-pale: #e8f5e9;
+            --gold-accent: #c5a55a;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #666666;
+            --border-color: #e0e0e0;
+            --bg-white: #ffffff;
+            --bg-light: #f5f7fa;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.15);
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: var(--text-primary);
+            overflow: hidden;
+        }
+
+        /* ---- MAIN LOGIN CONTAINER ---- */
+        .login-container {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            background: #ffffff;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* ---- LEFT PANEL (GREEN BRANDING) ---- */
+        .login-left {
+            flex: 0 0 46%;
+            max-width: 46%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 32px 40px 24px 36px;
+            color: #fff;
+            clip-path: polygon(0 0, 100% 0, 83% 100%, 0 100%);
+            z-index: 2;
+        }
+
+        /* Background office image */
+        .login-left::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('img/office-bg.png') center/cover no-repeat;
+            z-index: 0;
+        }
+
+        /* Dark green gradient overlay matching exact reference photo */
+        .login-left::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(115deg, rgba(12, 38, 18, 0.93) 0%, rgba(18, 55, 24, 0.90) 65%, rgba(25, 75, 32, 0.85) 100%);
+            z-index: 1;
+        }
+
+        /* Green diagonal accent line along edge */
+        .login-left-border {
+            position: absolute;
+            top: -20px;
+            right: 0;
+            bottom: -20px;
+            width: 6px;
+            background: linear-gradient(180deg, #76ff03 0%, #4caf50 50%, #1b5e20 100%);
+            transform: skewX(-9.5deg);
+            transform-origin: top right;
+            z-index: 4;
+            box-shadow: 0 0 14px rgba(118, 255, 3, 0.7);
+        }
+
+        /* Geometric decorative shapes at the bottom */
+        .geo-shapes {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 160px;
+            z-index: 2;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .geo-shapes svg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .left-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            width: 100%;
+            max-width: 360px;
+            margin-top: 10px;
+        }
+
+        /* Logo section */
+        .brand-logo {
+            margin-bottom: 24px;
+        }
+
+        .logo-diamond {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 10px;
+            position: relative;
+        }
+
+        .brand-name {
+            font-family: 'Cinzel', 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .brand-tagline {
+            font-family: 'Outfit', 'Inter', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.85;
+            font-weight: 400;
+        }
+
+        /* Title section */
+        .left-title {
+            margin-bottom: 4px;
+            text-align: left;
+        }
+
+        .left-title h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            line-height: 1.25;
+            color: #ffffff;
+        }
+
+        .left-title h2 .highlight {
+            color: #66bb6a;
+            display: block;
+        }
+
+        /* Divider line under title */
+        .title-divider {
+            width: 42px;
+            height: 3px;
+            background: #4caf50;
+            margin: 10px 0 12px;
+            border-radius: 2px;
+        }
+
+        .left-description {
+            font-size: 0.82rem;
+            opacity: 0.85;
+            line-height: 1.5;
+            font-weight: 300;
+            text-align: left;
+            color: #e8f5e9;
+        }
+
+        /* Feature icons row at bottom left */
+        .features-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            width: 100%;
+            max-width: 380px;
+            position: relative;
+            z-index: 3;
+            margin-bottom: 5px;
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            flex: 1;
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(27, 94, 32, 0.7);
+            border: 1.5px solid rgba(76, 175, 80, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+        }
+
+        .feature-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: #81c784;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .feature-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: 0.3px;
+            margin-top: 2px;
+        }
+
+        .feature-sublabel {
+            font-size: 0.58rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        /* ---- RIGHT PANEL (FORM) ---- */
+        .login-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 36px 16px 20px;
+            overflow: hidden;
+            position: relative;
+            background: var(--bg-white);
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .login-theme-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: var(--bg-light);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        .login-theme-btn:hover {
+            background: var(--green-pale);
+            color: var(--green-primary);
+            border-color: var(--green-medium);
+            transform: scale(1.05);
+        }
+
+        /* ---- Light / Dark Theme Overrides for Login ---- */
+        [data-theme="dark"] {
+            --bg-light: #0b130e;
+            --bg-white: #101c14;
+            --text-primary: #f0f4f1;
+            --text-secondary: #a3b8aa;
+            --text-muted: #6b8273;
+            --border-color: rgba(76, 175, 80, 0.18);
+        }
+
+        [data-theme="dark"] .input-wrapper input {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border-color: rgba(76, 175, 80, 0.2);
+        }
+
+        [data-theme="dark"] .btn-google {
+            background: #15241b;
+            color: #ffffff;
+            border-color: rgba(76, 175, 80, 0.25);
+        }
+
+        [data-theme="dark"] .form-brand-name {
+            color: #ffffff;
+        }
+
+        .login-form-wrapper {
+            width: 100%;
+            max-width: 380px;
+            margin: auto 0;
+            padding: 0;
+        }
+
+        /* Right side logo */
+        .form-brand {
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .form-brand .logo-diamond {
+            width: 38px;
+            height: 38px;
+            margin-bottom: 2px;
+        }
+
+        .form-brand-name {
+            font-family: 'Cinzel', 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--green-dark);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .form-brand-tagline {
+            font-family: 'Outfit', 'Inter', sans-serif;
+            font-size: 0.65rem;
+            color: var(--green-medium);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 1px;
+            font-weight: 500;
+        }
+
+        /* Project Management Workflows subtitle */
+        .form-subtitle {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .form-subtitle h3 {
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .form-subtitle p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* Welcome back heading */
+        .welcome-heading {
+            margin-bottom: 10px;
+        }
+
+        .welcome-heading h1 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .welcome-heading p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Form fields */
+        .form-group {
+            margin-bottom: 8px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrapper .input-icon {
+            position: absolute;
+            left: 12px;
+            display: flex;
+            align-items: center;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .input-wrapper .input-icon svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--text-muted);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 9px 12px 9px 38px;
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            font-family: inherit;
+            color: var(--text-primary);
+            background: var(--bg-white);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+
+        .input-wrapper input::placeholder {
+            color: #bbb;
+            font-weight: 400;
+        }
+
+        .input-wrapper input:focus {
+            border-color: var(--green-primary);
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            padding: 4px;
+        }
+
+        .toggle-password svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--text-muted);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .toggle-password:hover svg {
+            stroke: var(--text-primary);
+        }
+
+        /* Remember me & forgot password */
+        .form-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: 15px;
+            height: 15px;
+            accent-color: var(--green-primary);
+            cursor: pointer;
+        }
+
+        .remember-me span {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+
+        .forgot-link {
+            font-size: 0.78rem;
+            color: var(--green-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .forgot-link:hover {
+            color: var(--green-dark);
+            text-decoration: underline;
+        }
+
+        /* Sign in button */
+        .btn-signin {
+            width: 100%;
+            padding: 10px;
+            background: var(--green-dark);
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-signin:hover {
+            background: var(--green-primary);
+            box-shadow: 0 4px 16px rgba(27, 94, 32, 0.3);
+        }
+
+        .btn-signin:active {
+            transform: scale(0.98);
+        }
+
+        /* Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 8px 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        .divider span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* Google button */
+        .btn-google {
+            width: 100%;
+            padding: 9px;
+            background: var(--bg-white);
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            font-weight: 500;
+            font-family: inherit;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-google:hover {
+            background: #fafafa;
+            border-color: #ccc;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-google svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Copyright */
+        .copyright {
+            text-align: center;
+            margin-top: 28px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer trust badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .trust-badge svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--text-muted);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* ---- LOADING SPINNER (for Sign In button) ---- */
+        .btn-signin.loading {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .btn-signin.loading::after {
+            content: '';
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ---- ANIMATIONS ---- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .login-left {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .login-form-wrapper {
+            animation: fadeInUp 0.5s ease-out 0.2s both;
+        }
+
+        .trust-badges {
+            animation: fadeInUp 0.5s ease-out 0.4s both;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 1024px) {
+            .login-left {
+                flex: 0 0 40%;
+                max-width: 40%;
+                padding: 40px 30px;
+            }
+
+            .login-right {
+                padding: 30px 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+                padding: 0;
+            }
+
+            .login-left {
+                flex: none;
+                max-width: 100%;
+                border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+                padding: 40px 30px 30px;
+                min-height: auto;
+            }
+
+            .left-title h2 {
+                font-size: 1.3rem;
+            }
+
+            .left-description {
+                margin-bottom: 30px;
+            }
+
+            .features-row {
+                gap: 16px;
+            }
+
+            .login-right {
+                padding: 30px 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brand-name {
+                font-size: 1.4rem;
+            }
+
+            .left-title h2 {
+                font-size: 1.1rem;
+            }
+
+            .features-row {
+                gap: 12px;
+            }
+
+            .feature-icon {
+                width: 44px;
+                height: 44px;
+            }
+
+            .trust-badges {
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <!-- LEFT PANEL - Branding -->
+        <div class="login-left">
+            <!-- Geometric shapes at bottom -->
+            <div class="geo-shapes">
+                <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <polygon points="0,220 80,120 160,220" fill="#1B5E20" opacity="0.85" />
+                    <polygon points="100,220 180,100 260,220" fill="#2E7D32" opacity="0.75" />
+                    <polygon points="180,220 260,110 340,220" fill="#1B5E20" opacity="0.9" />
+                    <polygon points="260,220 340,100 420,220" fill="#388E3C" opacity="0.65" />
+                    <polygon points="340,220 420,130 500,220" fill="#2E7D32" opacity="0.8" />
+                    <polygon points="420,220 500,100 580,220" fill="#1B5E20" opacity="0.7" />
+                    <polygon points="500,220 560,140 600,220" fill="#4CAF50" opacity="0.6" />
+                    <polygon points="50,220 120,160 190,220" fill="#4CAF50" opacity="0.4" />
+                    <polygon points="300,220 370,140 440,220" fill="#66BB6A" opacity="0.3" />
+                </svg>
+            </div>
+
+            <div class="left-content">
+                <!-- Logo -->
+                <div class="brand-logo">
+                    <div class="logo-diamond" style="width: 76px; height: 76px; margin: 0 auto 12px;">
+                        <img src="img/yousuf_adil_logo_perfect.png" alt="Yousuf Adil Logo"
+                            style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 6px 16px rgba(0,0,0,0.4));">
+                    </div>
+                    <div class="brand-name">YOUSUF ADIL</div>
+                    <div class="brand-tagline">PACE ALIGNED ...</div>
+                </div>
+
+                <!-- Title -->
+                <div class="left-title">
+                    <h2>
+                        PROJECT MANAGEMENT
+                        <span class="highlight">WORK FLOWS</span>
+                    </h2>
+                </div>
+
+                <!-- Divider line -->
+                <div class="title-divider"></div>
+
+                <!-- Description -->
+                <p class="left-description">
+                    Plan smarter. Execute seamlessly.<br>
+                    Deliver with confidence.
+                </p>
+            </div>
+
+            <!-- Feature Icons Row at Bottom Left -->
+            <div class="features-row">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+                            <path d="M9 12l2 2 4-4" />
+                        </svg>
+                    </div>
+                    <div class="feature-label">Plan</div>
+                    <div class="feature-sublabel">Define goals<br>and tasks</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <div class="feature-label">Collaborate</div>
+                    <div class="feature-sublabel">Work together<br>in real-time</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <line x1="18" y1="20" x2="18" y2="10" />
+                            <line x1="12" y1="20" x2="12" y2="4" />
+                            <line x1="6" y1="20" x2="6" y2="14" />
+                        </svg>
+                    </div>
+                    <div class="feature-label">Track</div>
+                    <div class="feature-sublabel">Monitor progress<br>and performance</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                    </div>
+                    <div class="feature-label">Deliver</div>
+                    <div class="feature-sublabel">Complete on time<br>with quality</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT PANEL - Login Form -->
+        <div class="login-right">
+            <!-- Theme Toggle Button -->
+            <button id="login-theme-toggle" class="login-theme-btn" onclick="toggleLoginTheme()"
+                title="Toggle Light / Dark Mode">
+                <svg id="login-theme-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+
+            <div class="login-form-wrapper">
+                <!-- Logo on right side -->
+                <div class="form-brand">
+                    <div class="logo-diamond" style="width: 48px; height: 48px; margin: 0 auto 6px;">
+                        <img src="img/yousuf_adil_logo_perfect.png" alt="Yousuf Adil Logo"
+                            style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));">
+                    </div>
+                    <div class="form-brand-name">YOUSUF ADIL</div>
+                    <div class="form-brand-tagline">PACE ALIGNED ...</div>
+                </div>
+
+                <!-- Subtitle -->
+                <div class="form-subtitle">
+                    <h3>Project Management Workflows</h3>
+                    <p>Streamline your projects. Achieve more.</p>
+                </div>
+
+                <!-- Welcome -->
+                <div class="welcome-heading">
+                    <h1>Welcome back</h1>
+                    <p>Please sign in to continue to your workspace</p>
+                </div>
+
+                <!-- Form -->
+                <form id="login-form" onsubmit="handleLogin(event)">
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                                    <path d="M22 4L12 13 2 4" />
+                                </svg>
+                            </span>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required
+                                autocomplete="email">
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" />
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                </svg>
+                            </span>
+                            <input type="password" id="password" name="password" placeholder="Enter your password"
+                                required autocomplete="current-password">
+                            <button type="button" class="toggle-password" onclick="togglePasswordVisibility()"
+                                aria-label="Toggle password visibility">
+                                <svg id="eye-icon" viewBox="0 0 24 24">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Remember me / Forgot password -->
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="remember-me" name="remember">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-link">Forgot password?</a>
+                    </div>
+
+                    <!-- Sign In Button -->
+                    <button type="submit" class="btn-signin" id="btn-signin">Sign in</button>
+                </form>
+
+                <!-- Divider -->
+                <div class="divider">
+                    <span>or</span>
+                </div>
+
+                <!-- Google Sign In -->
+                <button class="btn-google" onclick="handleGoogleLogin()">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"
+                            fill="#4285F4" />
+                        <path
+                            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                            fill="#34A853" />
+                        <path
+                            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                            fill="#FBBC05" />
+                        <path
+                            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                            fill="#EA4335" />
+                    </svg>
+                    Sign in with Google
+                </button>
+
+                <!-- Copyright -->
+                <div class="copyright" style="margin-top: 14px; font-size: 0.72rem;">
+                    &copy; 2025 Yousuf Adil. All rights reserved.
+                </div>
+            </div>
+
+            <!-- Footer Trust Badges -->
+            <div class="trust-badges"
+                style="display: flex; gap: 16px; justify-content: center; margin-top: 8px; margin-bottom: 4px;">
+                <div class="trust-badge">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    <span>Secure</span>
+                </div>
+                <div class="trust-badge">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="11" width="18" height="11" rx="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                    <span>Reliable</span>
+                </div>
+                <div class="trust-badge">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                    </svg>
+                    <span>Team Focused</span>
+                </div>
+                <div class="trust-badge">
+                    <svg viewBox="0 0 24 24">
+                        <line x1="18" y1="20" x2="18" y2="10" />
+                        <line x1="12" y1="20" x2="12" y2="4" />
+                        <line x1="6" y1="20" x2="6" y2="14" />
+                    </svg>
+                    <span>Results Driven</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle for Login Page
+        function toggleLoginTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('yaca_theme', newTheme);
+            updateLoginThemeIcon(newTheme);
+        }
+
+        function updateLoginThemeIcon(theme) {
+            const icon = document.getElementById('login-theme-icon');
+            if (!icon) return;
+            if (theme === 'dark') {
+                // Sun Icon
+                icon.innerHTML = `
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                `;
+            } else {
+                // Moon Icon
+                icon.innerHTML = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
+            }
+        }
+
+        // Init icon on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            updateLoginThemeIcon(currentTheme);
+        });
+
+        // Toggle password visibility
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eye-icon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.innerHTML = `
+          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+          <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+          <line x1="1" y1="1" x2="23" y2="23"/>
+        `;
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.innerHTML = `
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+          <circle cx="12" cy="12" r="3"/>
+        `;
+            }
+        }
+
+        // Handle login form submission
+        function handleLogin(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-signin');
+            const email = document.getElementById('email').value;
+
+            // Add loading state
+            btn.classList.add('loading');
+            btn.textContent = 'Signing in';
+
+            // Simulate login delay then redirect to main app
+            setTimeout(() => {
+                // Store login state
+                localStorage.setItem('yaca_logged_in', 'true');
+                localStorage.setItem('yaca_user_email', email);
+
+                // Redirect to main app
+                window.location.href = 'index.html';
+            }, 1200);
+        }
+
+        // Handle Google sign-in
+        function handleGoogleLogin() {
+            const btn = document.querySelector('.btn-google');
+            btn.style.opacity = '0.7';
+            btn.style.pointerEvents = 'none';
+            btn.innerHTML = `
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        Connecting to Google...
+      `;
+
+            setTimeout(() => {
+                localStorage.setItem('yaca_logged_in', 'true');
+                localStorage.setItem('yaca_user_email', 'user@yousufadil.com');
+                window.location.href = 'index.html';
+            }, 1200);
+        }
+    </script>
+</body>
+
+</html>
